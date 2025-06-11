@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Brendaku ❤️ - Ulang Tahun Spesial!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset Sederhana */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Variabel CSS untuk Warna dan Font */
+        :root {
+            --primary-color: #FFD1DC; /* Pink lembut */
+            --secondary-color: #A7D9E3; /* Biru muda lembut */
+            --accent-color: #F8F8F8; /* Krem/Putih terang */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow-light: rgba(0, 0, 0, 0.08);
+            --font-inter: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--accent-color); /* Warna latar belakang utama */
+            scroll-behavior: smooth; /* Untuk scroll yang halus antar bagian */
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header dan Navigasi */
+        header {
+            background-color: rgba(255, 255, 255, 0.9); /* Sedikit transparan */
+            padding: 15px 0;
+            box-shadow: 0 2px 10px var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom-left-radius: 15px; /* Sudut membulat */
+            border-bottom-right-radius: 15px; /* Sudut membulat */
+            display: flex; /* Menggunakan flexbox untuk header */
+            justify-content: space-between; /* Untuk menempatkan logo/judul dan navigasi */
+            align-items: center;
+            padding-left: 20px; /* Padding untuk konten header */
+            padding-right: 20px;
+        }
+
+        .site-title {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center; /* Pusatkan navigasi */
+            gap: 30px; /* Jarak antar item navigasi */
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hamburger Menu Button */
+        .hamburger {
+            display: none; /* Sembunyikan secara default */
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+            z-index: 1100; /* Pastikan di atas navigasi */
+        }
+
+        .hamburger .bar {
+            width: 100%;
+            height: 3px;
+            background-color: var(--text-dark);
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Animasi Hamburger (opsional, untuk X) */
+        .hamburger.open .bar:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        .hamburger.open .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open .bar:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
+
+        /* Bagian Umum (Sections) */
+        section {
+            padding: 80px 0;
+            text-align: center;
+            min-height: 100vh; /* Pastikan setiap bagian setidaknya setinggi viewport */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--primary-color); /* Warna latar belakang bergantian */
+            color: white;
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: var(--primary-color); /* Warna judul utama */
+            text-shadow: 2px 2px 5px var(--shadow-light);
+        }
+
+        section:nth-of-type(even) h1,
+        section:nth-of-type(even) h2,
+        section:nth-of-type(even) h3 {
+            color: white; /* Judul di bagian berwarna gelap jadi putih */
+        }
+
+        h2 {
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Bagian Hero (Home) */
+        #home {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding-top: 0; /* Sesuaikan padding */
+            padding-bottom: 0;
+            min-height: 100vh;
+        }
+
+        #home .hero-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #home h1 {
+            font-size: 4em;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.2);
+        }
+
+        #home p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        #home .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%; /* Bentuk lingkaran */
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 30px var(--shadow-light);
+            margin-top: 30px;
+            transition: transform 0.3s ease;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #home .hero-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Bagian Galeri */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsif */
+            gap: 25px;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* Tinggi gambar yang konsisten */
+            object-fit: contain; /* Diubah dari 'cover' menjadi 'contain' */
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            margin-bottom: 15px;
+            background-color: rgba(255, 209, 220, 0.2); /* Latar belakang transparan untuk ruang kosong */
+        }
+
+        .gallery-item p {
+            font-size: 0.95em;
+            color: var(--text-light);
+            padding: 0 15px;
+            margin-bottom: 0; /* Hapus margin bawah default */
+        }
+
+        /* Bagian Timeline / Momen */
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto;
+        }
+
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background-color: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            text-align: left;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .timeline-content h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .timeline-content img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain; /* Diubah dari 'cover' menjadi 'contain' */
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background-color: rgba(167, 217, 227, 0.2); /* Latar belakang transparan untuk ruang kosong */
+        }
+
+        /* Keyframe Animations untuk Fly-in */
+        @keyframes flyInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes flyInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Initial state for elements that will animate */
+        .animated-element {
+            opacity: 0;
+            /* transform akan diatur oleh keyframes */
+        }
+
+        /* Classes to trigger animations */
+        .animate-fly-in-left {
+            animation: flyInLeft 1s ease-out forwards;
+        }
+
+        .animate-fly-in-right {
+            animation: flyInRight 1s ease-out forwards;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9em;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        /* Halaman Login */
+        #login-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000; /* Pastikan di atas semua konten */
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            /* Animasi untuk login box */
+            animation: zoomIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .login-box h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+
+        .login-box .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .login-box label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            color: var(--text-dark);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-box input[type="text"]:focus,
+        .login-box input[type="password"]:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(255, 209, 220, 0.5);
+            outline: none;
+        }
+
+        .login-box button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 25px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(255, 209, 220, 0.4);
+        }
+
+        .login-box button:hover {
+            background-color: #FFB6C1; /* Sedikit lebih gelap */
+            transform: translateY(-2px);
+        }
+
+        .login-box .error-message {
+            color: #e74c3c; /* Merah untuk pesan error */
+            margin-top: 15px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Keyframe Animations */
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomInBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            70% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        /* Responsif untuk Mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1em;
+                padding: 0 15px;
+            }
+
+            /* Tampilkan hamburger dan sembunyikan navigasi default */
+            nav {
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px; /* Di bawah header */
+                left: 0;
+                background-color: white; /* Diubah menjadi solid white */
+                box-shadow: 0 5px 15px var(--shadow-light);
+                border-bottom-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+                overflow: hidden;
+                visibility: hidden; /* Sembunyikan secara default */
+                opacity: 0; /* Sembunyikan secara default */
+                max-height: 0; /* Awalnya tidak ada tinggi */
+                transition: max-height 0.3s ease-out, opacity 0.3s ease-out, visibility 0.3s ease-out;
+                z-index: 1001; /* Z-index lebih tinggi dari header */
+            }
+
+            nav.open {
+                visibility: visible; /* Tampilkan */
+                opacity: 1; /* Munculkan */
+                max-height: 300px; /* Tinggi yang cukup untuk semua link */
+                padding-bottom: 10px; /* Tambahkan padding saat terbuka */
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                padding: 12px 15px;
+                border-bottom: 1px solid #eee; /* Garis pemisah antar link */
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            .hamburger {
+                display: flex; /* Tampilkan hamburger di mobile */
+            }
+
+            header {
+                justify-content: space-between; /* Untuk menempatkan judul dan hamburger */
+            }
+
+            #home .hero-image {
+                width: 200px;
+                height: 200px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr; /* Satu kolom di mobile */
+            }
+
+            .timeline-container::after {
+                left: 18px; /* Pindah garis tengah ke kiri */
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px; /* Sesuaikan padding */
+                padding-right: 10px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0%; /* Pindah ke kiri */
+            }
+
+            .timeline-item::after {
+                left: 8px; /* Sesuaikan posisi lingkaran */
+            }
+
+            .login-box {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Styling untuk tombol play musik */
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .music-controls:hover {
+            background-color: #FFB6C1;
+            transform: scale(1.05);
+        }
+
+        .music-controls svg {
+            fill: white;
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-page">
+        <div class="login-box">
+            <h2>Selamat Datang, Sayangkuu ❤️!</h2>
+            <p>Masukkan kunci rahasia untuk melihat kado spesialmu.</p>
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="">
+            </div>
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="">
+            </div>
+            <button id="login-button">Masuk</button>
+            <p class="error-message" id="login-error"></p>
+        </div>
+    </div>
+
+    <div id="main-content" style="display: none;">
+        <header>
+            <a href="#home" class="site-title">Brendakuu</a> 
+            <button class="hamburger" id="hamburger-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="main-nav">
+                <a href="#home">Home</a>
+                <a href="#about">Tentang Kita</a>
+                <a href="#gallery">Galeri Kenangan</a>
+                <a href="#moments">Momen Spesial</a>
+                <a href="#message">Pesan Ulang Tahun</a>
+            </nav>
+        </header>
+
+        <!-- Elemen Audio untuk Musik Latar -->
+        <audio id="background-music" loop>
+            <!-- GANTI "nama_lagu_kamu.mp3" dengan nama file MP3 yang kamu unggah ke GitHub -->
+            <source src="./COVER-SOLE_&_THAMA_Close to you_Original_by_The_Carpenters_2.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung elemen audio.
+        </audio>
+
+        <!-- Tombol Play/Pause Musik -->
+        <div class="music-controls" id="music-controls">
+            <svg id="play-icon" style="display: block;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="pause-icon" style="display: none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        </div>
+
+        <section id="home">
+            <div class="hero-content container">
+                <h1>Selamat Ulang Tahun, Brendakuu sayang!</h1>
+                <p>Untuk cinta dalam hidupku, setiap momen bersamamu adalah anugerah. Ini adalah sedikit hadiah dari hatiku.</p>
+                <img src="IMG_8205.JPG" 
+                     alt="Foto Pacar Kamu" 
+                     class="hero-image animated-element"
+                     onerror="this.onerror=null;this.src='https://placehold.co/300x300/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>Sedikit Tentang Brenda</h2>
+                <p>Brendaaa itu anak yang lucuu, imut, cantik dan sangat periang, tapi kalau sudah marah ngambeknya parah hahaha, biasa suka ancam lapor bapaknya. sangat suka dimanja manja dan suka dipanggil yangmulia hahaha. btw makasih yaa sudah selalu bersama sampai saat ini. sayang brenda banyak banyak.
+                   <br> I Love You Temankuu, Sayangkuu, Cintakuu. ❤️😘😘 
+                </p>
+                <img src="Brenda3.jpeg" 
+                     alt="Foto Kita Berdua" 
+                     class="animated-element"
+                     style="width: 100%; max-width: 500px; height: auto; border-radius: 15px; box-shadow: 0 8px 20px var(--shadow-light); margin-top: 30px;"
+                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="container">
+                <h2>Galeri Kenangan Kita</h2>
+                <p>Beberapa foto lucu dari checklist yang berhasil kita lakukan, next harus lebih banyak lagi yaa 😍.</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <!-- Perhatikan object-fit: contain; dan background-color di CSS -->
+                        <img src="IMG_8261.JPG" alt="Momen 1" class="animated-element" onerror="this.onerror=null;this.src='https://placehold.co/400x250/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                        <p>Bersamamu aku selalu rasa bahagia.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_8234.JPG" alt="Momen 2" class="animated-element" onerror="this.onerror=null;this.src='https://placehold.co/400x250/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                        <p>Saat lihat senyummu selalu membuatku senang.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_8217.JPG" alt="Momen 3" class="animated-element" onerror="this.onerror=null;this.src='https://placehold.co/400x250/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                        <p>Melihat lucunya tingkah lakumuu 😂.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_8212.JPG" alt="Momen 4" class="animated-element" onerror="this.onerror=null;this.src='https://placehold.co/400x250/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                        <p>Anak aneh yang kalau ngambek ancam lapor bapaknya 😂.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_8209.JPG" alt="Momen 5" class="animated-element" onerror="this.onerror=null;this.src='https://placehold.co/400x250/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                        <p>Anak yang kalau ngambek harus dibujuk bujuk supaya senang lagi 😂.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMG_8233.JPG" alt="Momen 6" class="animated-element" onerror="this.onerror=null;this.src='https://placehold.co/400x250/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                        <p>Selalu suka dipanggil yangmulia ❤️😁.</p>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="moments">
+            <div class="container">
+                <h2>Momen-Momen Penting</h2>
+                <p>Beberapa tanggal dan peristiwa yang membentuk kisah cinta kita.</p>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-content animated-element">
+                            <h3>[Tanggal Momen 1] - Awal Kita</h3>
+                            <img src="IMG_20190420_140459.jpg" alt="Awal Kita" onerror="this.onerror=null;this.src='https://placehold.co/400x200/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                            <p>Momen pertama kali kita jalan jalan dan foto bareng.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content animated-element">
+                            <h3>[Tanggal Momen 2] - Kencan Pertama</h3>
+                            <img src="IMG-20231222-WA0008.jpg" alt="Kencan Pertama" onerror="this.onerror=null;this.src='https://placehold.co/400x200/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                            <p>Foto dating kita yang pertama setelah 2 bulan berpacaran.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content animated-element">
+                            <h3>[Tanggal Momen 3] - Liburan Impian</h3>
+                            <img src="Brenda6.jpeg" alt="Liburan Impian" onerror="this.onerror=null;this.src='https://placehold.co/400x200/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                            <p>Foto sebelum ultah. bagaya sekali yang merekayan ultahnya :D.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content animated-element">
+                            <h3>[Tanggal Momen 4] - Hari Spesial</h3>
+                            <img src="Brenda8.jpeg" alt="Hari Spesial" onerror="this.onerror=null;this.src='https://placehold.co/400x200/CCCCCC/000000?text=Gambar+Gagal+Dimuat';">
+                            <p>Enjoy your Birthday sayangkuuu❤️.</p>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="message">
+            <div class="container">
+                <h2>Pesan Spesial Untukmu</h2>
+                <p style="font-size: 1.3em; font-weight: 600; color: var(--text-dark);">
+                    Sayangku [Nama Pacar Kamu],<br><br>
+                    Haiii sayangkuuu, selamat ulang tahun yaa. semoga diulangtahun kali ini lebuh banyak kebahagian yang bisa didapatkan dari pada sebelumnya. semoga apa yang selalu ayaang mau inginkan bisa segera terwujud. dan semoga apa yang kita harapkan juga bisa segera terwujud. AMINNN :D <br><br>
+                    I LOVE YOU SO MUCH BRENDAKUU❤️<br>
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Dibuat dengan Cinta oleh Yakob untuk [Nama Pacar Kamu].</p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript untuk Halaman Login
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginPage = document.getElementById('login-page');
+            const mainContent = document.getElementById('main-content');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const loginButton = document.getElementById('login-button');
+            const loginError = document.getElementById('login-error');
+            const backgroundMusic = document.getElementById('background-music'); // Ambil elemen audio
+            const musicControls = document.getElementById('music-controls');
+            const playIcon = document.getElementById('play-icon');
+            const pauseIcon = document.getElementById('pause-icon');
+
+
+            // Kredensial pengguna
+            const users = {
+                "brendakuu": "sayangkuu",
+                "admin": "yakob123"
+            };
+
+            // Tanggal ulang tahun Brendakuu (Bulan dimulai dari 0: Januari=0, Juni=5)
+            const birthdayMonth = 5; // Juni
+            const birthdayDay = 12; // Tanggal 12
+
+            // Function to personalize the website content
+            function personalizeWebsite(loggedInUsername) {
+                let displayGirlfriendName = "Brendakuu"; // Default name
+
+                // If the logged-in user is 'admin', we still want the content for 'Brendakuu'
+                // This function is primarily for the content personalization, not user role
+                if (loggedInUsername === "admin") {
+                    displayGirlfriendName = "Brendakuu"; // Admin also sees content for Brendakuu
+                } else if (loggedInUsername === "brendakuu") {
+                    displayGirlfriendName = "Brendakuu";
+                }
+                
+                document.querySelectorAll('title').forEach(el => el.textContent = el.textContent.replace('[Nama Pacar Kamu]', displayGirlfriendName));
+                document.querySelectorAll('h1').forEach(el => el.textContent = el.textContent.replace('[Nama Pacar Kamu]', displayGirlfriendName));
+                document.querySelectorAll('p').forEach(el => el.innerHTML = el.innerHTML.replace('[Nama Pacar Kamu]', displayGirlfriendName));
+                document.querySelectorAll('[alt="Foto Pacar Kamu"]').forEach(el => el.alt = `Foto ${displayGirlfriendName}`);
+                document.querySelector('.site-title').textContent = displayGirlfriendName; // Personalisasi judul situs
+            }
+
+            loginButton.addEventListener('click', function() {
+                const enteredUsername = usernameInput.value;
+                const enteredPassword = passwordInput.value;
+                loginError.textContent = ""; // Clear previous error messages
+
+                if (users[enteredUsername] === enteredPassword) {
+                    // Cek batasan tanggal untuk user 'brendakuu'
+                    if (enteredUsername === "brendakuu") {
+                        const currentDate = new Date();
+                        const currentMonth = currentDate.getMonth();
+                        const currentDay = currentDate.getDate();
+
+                        // Cek apakah tanggal saat ini sebelum ulang tahun di tahun yang sama
+                        const isBeforeBirthday = (currentMonth < birthdayMonth) || 
+                                                 (currentMonth === birthdayMonth && currentDay < birthdayDay);
+
+                        if (isBeforeBirthday) {
+                            loginError.textContent = `Maaf, kado ini baru bisa dibuka pada tanggal ${birthdayDay} Juni!`;
+                            usernameInput.value = '';
+                            passwordInput.value = '';
+                            usernameInput.focus();
+                            return; // Hentikan proses login
+                        }
+                    }
+
+                    // Jika kredensial benar dan tidak ada batasan tanggal
+                    loginPage.style.opacity = '0'; // Fade out login page
+                    setTimeout(() => {
+                        loginPage.style.display = 'none';
+                        mainContent.style.display = 'block'; // Show main content
+                        personalizeWebsite(enteredUsername); // Personalize content after successful login
+                        // backgroundMusic.play().catch(error => { /* Autoplay dihapus dari sini */ }); 
+                        // Autoplay logic has been removed from here. Music will be played via button click.
+                    }, 500); // Match transition duration
+                } else {
+                    loginError.textContent = "Username atau password salah. Coba lagi!";
+                    usernameInput.value = ''; // Clear inputs
+                    passwordInput.value = '';
+                    usernameInput.focus(); // Focus on username for next attempt
+                }
+            });
+
+            // Allow pressing Enter key to login
+            usernameInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    loginButton.click();
+                }
+            });
+            passwordInput.addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    loginButton.click();
+                }
+            });
+
+            // JavaScript untuk Kontrol Musik
+            musicControls.addEventListener('click', function() {
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play().catch(error => {
+                        console.log("Play failed:", error);
+                        // Instead of alert, you might show a small message on the page itself
+                        const tempMsg = document.createElement('div');
+                        tempMsg.textContent = "Gagal memutar musik. Coba lagi atau periksa izin browser.";
+                        tempMsg.style.cssText = "position:fixed; bottom:80px; right:20px; background-color:red; color:white; padding:10px; border-radius:5px; z-index:1001;";
+                        document.body.appendChild(tempMsg);
+                        setTimeout(() => tempMsg.remove(), 3000); // Remove message after 3 seconds
+                    });
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                } else {
+                    backgroundMusic.pause();
+                    playIcon.style.display = 'block';
+                    pauseIcon.style.display = 'none';
+                }
+            });
+
+            // Update icon when music ends (if not looping, though it's set to loop)
+            backgroundMusic.addEventListener('ended', function() {
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+            });
+        });
+
+        // JavaScript untuk Hamburger Menu
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerButton = document.getElementById('hamburger-button');
+            const mainNav = document.getElementById('main-nav');
+
+            hamburgerButton.addEventListener('click', function() {
+                mainNav.classList.toggle('open');
+                hamburgerButton.classList.toggle('open'); // Untuk animasi X
+            });
+
+            // Tutup menu saat link diklik (untuk UX mobile)
+            mainNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (mainNav.classList.contains('open')) {
+                        mainNav.classList.remove('open');
+                        hamburgerButton.classList.remove('open');
+                    }
+                });
+            });
+
+            // --- Animasi Fly-in untuk Gambar dan Konten Timeline ---
+            const elementsToAnimate = document.querySelectorAll(
+                '#home .hero-image, #about img, .gallery-item img, .timeline-content'
+            );
+
+            const animationObserverOptions = {
+                root: null, /* viewport */
+                rootMargin: '0px',
+                threshold: 0.1 /* Trigger saat 10% elemen terlihat */
+            };
+
+            const animationObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Tambahkan kelas base animated-element
+                        entry.target.classList.add('animated-element');
+
+                        // Dapatkan indeks elemen yang berinteraksi dari semua elemen yang diobservasi
+                        const index = Array.from(elementsToAnimate).indexOf(entry.target);
+                        
+                        if (index % 2 === 0) { // Indeks genap (0, 2, 4...) -> fly in dari kiri
+                            entry.target.classList.add('animate-fly-in-left');
+                        } else { // Indeks ganjil (1, 3, 5...) -> fly in dari kanan
+                            entry.target.classList.add('animate-fly-in-right');
+                        }
+                        observer.unobserve(entry.target); // Berhenti mengamati setelah animasi berjalan
+                    }
+                });
+            }, animationObserverOptions);
+
+            // Setel opacity awal ke 0 dan observasi semua elemen yang akan dianimasikan
+            elementsToAnimate.forEach(el => {
+                el.style.opacity = '0'; // Pastikan opacity awal 0
+                animationObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
